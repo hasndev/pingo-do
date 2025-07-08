@@ -1,0 +1,17 @@
+ <section class="form-section">
+    <form class="todo-form" (submit)="submitForm()">
+        <input
+            type="text"
+            [(ngModel)]="newTitle"
+            name="title"
+            placeholder="عنوان المهمة"
+            required />
+        <textarea
+            [(ngModel)]="newDescription"
+            name="description"
+            placeholder="تفاصيل المهمة"
+            rows="2"
+            required></textarea>
+        <button type="submit">➕ أضف المهمة</button>
+    </form>
+</section>

@@ -1,0 +1,14 @@
+.app-footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 2rem;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #888;
+}

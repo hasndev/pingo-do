@@ -1,0 +1,40 @@
+<section class="todos-section">
+    <div class="filter-buttons">
+        <button (click)="setFilter('all')"
+            [class.active]="filter() === 'all'">الكل</button>
+        <button (click)="setFilter('active')"
+            [class.active]="filter() === 'active'">غير المكتملة</button>
+        <button (click)="setFilter('completed')"
+            [class.active]="filter() === 'completed'">المكتملة</button>
+    </div>
+    @if (todos().length === 0) {
+    <p class="empty">🚫 لا توجد مهام حالياً</p>
+    }
+
+    <div class="card-list">
+        @for (todo of todos(); track todo.id) {
+        <div
+            class="todo-card"
+            dir="rtl"
+            (click)="toggleTodo(todo.id)"
+            [class.completed]="todo.completed"
+            [class.deleting]="isDeleting(todo.id)">
+            <button class="delete"
+                (click)="handleDelete(todo.id); $event.stopPropagation()">🗑️
+                حذف</button>
+
+            <div class="todo-header">
+                <input
+                    type="checkbox"
+                    [checked]="todo.completed"
+                    (change)="toggleTodo(todo.id)"
+                    (click)="$event.stopPropagation()" />
+                <h3 [class.done]="todo.completed">{{ todo.title }}</h3>
+            </div>
+
+            <p class="description" [class.done]="todo.completed">{{
+                todo.description }}</p>
+        </div>
+        }
+    </div>
+</section>
